@@ -9,4 +9,4 @@ while True:
 	for key, val in llp.items():
 		logINFO.write(str(key) + " :  " + str(val) + "\n")
 		print('%s : %s' % (key, val))
-logINFO.close
+logINFO.close()
