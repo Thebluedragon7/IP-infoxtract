@@ -6,8 +6,14 @@ GEO_LITE_CITY = "GeoLiteCity/GeoLiteCity.dat"
 def get_position(ip_address: str):
     raw_data = pygeoip.GeoIP(GEO_LITE_CITY)
     data_map = raw_data.record_by_addr(ip_address)
-    lat_long = "{}, {}".format(data_map['latitude'], data_map['longitude'])
-    return lat_long
+    latitude = data_map['latitude']
+    longitude = data_map['longitude']
+    if longitude >= 0:
+        polarity = "+"
+    else:
+        polarity = "-"
+    earth_url = "https://earth.google.com/web/search/{},{}{}/".format(latitude, polarity, longitude)
+    return earth_url
 
 
 if __name__ == "__main__":
