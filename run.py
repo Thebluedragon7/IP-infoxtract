@@ -11,7 +11,7 @@ def get_position(ip_address: str):
     if longitude >= 0:
         polarity = "+"
     else:
-        polarity = "-"
+        polarity = ""
     earth_url = "https://earth.google.com/web/search/{},{}{}/".format(latitude, polarity, longitude)
     return earth_url
 
